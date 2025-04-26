@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <title>Kabbo's 3D Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0;
       height: 100%;
       overflow: hidden;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       color: white;
       text-align: center;
     }
@@ -41,6 +42,23 @@
       color: #00eaff;
       text-decoration: none;
     }
+    .btn {
+      background-color: #2196f3;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 15px 10px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #1976d2;
+    }
+    .social-buttons {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -61,7 +79,19 @@
 
   <h2>Contact</h2>
   <p>Email: <a href="mailto:kabbo@example.com">kabbo@example.com</a></p>
-  <p>GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></p>
+
+  <!-- Submit Button -->
+  <button class="btn">Submit</button>
+
+  <!-- Social Media Buttons -->
+  <div class="social-buttons">
+    <a href="https://facebook.com" target="_blank">
+      <button class="btn" style="background-color: #4267B2;">Facebook</button>
+    </a>
+    <a href="https://instagram.com" target="_blank">
+      <button class="btn" style="background-color: #E1306C;">Instagram</button>
+    </a>
+  </div>
 </div>
 
 <!-- Three.js and starfield script -->
