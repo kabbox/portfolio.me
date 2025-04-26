@@ -2,55 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Kabbo's Responsive 3D Portfolio</title>
+  <title>Kabbo's 3D Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0;
       height: 100%;
+      overflow: hidden;
       font-family: 'Montserrat', sans-serif;
-      background: black;
-      overflow-x: hidden;
+      color: white;
+      text-align: center;
     }
-
     canvas {
       position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
     }
-
     .content {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 5vh 5vw;
-      box-sizing: border-box;
-      color: white;
-      text-align: center;
+      padding: 60px 20px;
     }
-
     h1 {
-      font-size: 6vw;
-      margin: 0.2em 0;
+      font-size: 3em;
+      margin-bottom: 0.2em;
     }
-
     h2 {
-      font-size: 4vw;
-      margin-top: 1em;
+      font-size: 2em;
+      margin-top: 1.5em;
     }
-
     p {
-      font-size: 2.5vw;
-      max-width: 90vw;
-      margin: 0.5em auto;
+      font-size: 1.1em;
+      max-width: 700px;
+      margin: 0 auto;
     }
-
+    a {
+      color: #00eaff;
+      text-decoration: none;
+    }
     .btn {
       background-color: #2196f3;
       color: white;
@@ -61,29 +52,12 @@
       cursor: pointer;
       margin: 15px 10px;
       transition: background 0.3s;
-      white-space: nowrap;
     }
-
     .btn:hover {
       background-color: #1976d2;
     }
-
     .social-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
       margin-top: 20px;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    @media (min-width: 768px) {
-      h1 { font-size: 3em; }
-      h2 { font-size: 2em; }
-      p { font-size: 1.2em; max-width: 700px; }
     }
   </style>
 </head>
@@ -104,10 +78,12 @@
   <p>✅ Meal Counting App • ✅ JavaFX Calculator • ✅ Hosting Panel Clone</p>
 
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:kabbo@example.com" style="color:#00eaff;">kabbo@example.com</a></p>
+  <p>Email: <a href="mailto:kabbo@example.com">kabbo@example.com</a></p>
 
+  <!-- Submit Button -->
   <button class="btn">Submit</button>
 
+  <!-- Social Media Buttons -->
   <div class="social-buttons">
     <a href="https://facebook.com" target="_blank">
       <button class="btn" style="background-color: #4267B2;">Facebook</button>
@@ -118,7 +94,7 @@
   </div>
 </div>
 
-<!-- Starfield Background with Three.js -->
+<!-- Three.js and starfield script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
   const scene = new THREE.Scene();
@@ -126,6 +102,7 @@
   const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg') });
   renderer.setSize(window.innerWidth, window.innerHeight);
 
+  // Create starfield
   const starGeometry = new THREE.BufferGeometry();
   const starCount = 10000;
   const positions = [];
@@ -137,6 +114,7 @@
   }
 
   starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
   const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.7 });
   const stars = new THREE.Points(starGeometry, starMaterial);
   scene.add(stars);
@@ -149,11 +127,10 @@
     stars.rotation.y += 0.0007;
     renderer.render(scene, camera);
   }
-
   animate();
 
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
